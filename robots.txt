@@ -1,0 +1,47 @@
+User-agent: *
+Disallow: /sitepanel
+Disallow: /assets
+Disallow: /uploaded_files
+Disallow: /users/forgottenpassword
+
+ALTER TABLE `tbl_admin` ADD `tax` INT(11) NULL DEFAULT NULL AFTER `total_hits`;
+
+ALTER TABLE `wl_order` ADD `cgst` FLOAT(10) NULL DEFAULT NULL AFTER `vat_applied_cent`, ADD `sgst` FLOAT(10) NULL DEFAULT NULL AFTER `cgst`;
+
+CREATE TABLE `tbl_bulk_order` (
+  `id` int(11) NOT NULL,
+  `name` varchar(250) DEFAULT NULL,
+  `email` varchar(250) DEFAULT NULL,
+  `mobile_number` varbinary(250) DEFAULT NULL,
+  `country` varchar(250) DEFAULT NULL,
+  `city` varchar(250) DEFAULT NULL,
+  `specialties` text,
+  `order_quantity` varchar(250) DEFAULT NULL,
+  `message` text,
+  `receive_date` date DEFAULT NULL,
+  `reply_status` enum('Y','N') DEFAULT 'N'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tbl_bulk_order`
+--
+ALTER TABLE `tbl_bulk_order`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tbl_bulk_order`
+--
+ALTER TABLE `tbl_bulk_order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+INSERT INTO `tbl_admin_sections` (`id`, `parent_id`, `section_title`, `section_controller`, `disp_order`, `status`) VALUES ('36', '7', 'Bulk Order Enquiry', 'bulk_orders', '3', '1');
+
+
