@@ -3,7 +3,7 @@ Disallow: /sitepanel
 Disallow: /assets
 Disallow: /uploaded_files
 Disallow: /users/forgottenpassword
-
+subash chndra test me
 ALTER TABLE `tbl_admin` ADD `tax` INT(11) NULL DEFAULT NULL AFTER `total_hits`;
 
 ALTER TABLE `wl_order` ADD `cgst` FLOAT(10) NULL DEFAULT NULL AFTER `vat_applied_cent`, ADD `sgst` FLOAT(10) NULL DEFAULT NULL AFTER `cgst`;
